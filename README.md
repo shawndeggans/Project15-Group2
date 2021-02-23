@@ -397,9 +397,15 @@ Our goal was to build a complete MLOPs pipeline, but we made a few early decisio
 
 [A YouTube video walkthrough of our DevOps process.](https://youtu.be/ykfQggAf-bY)
 
-Proof #2 - We could read sound files, convert those to spectrogramss, and use those spectrogramss to recognize elephant vocalization.
+Proof #2 - We could build out the Azure services and infrastructure needed to support our ideas.
 
-Proof #3 - We could produce the primary logic that represents the inner workings of the IoT Edge device. This means we could take the spectrogram image and categorize the elephant vocalizations using a machine learning model, mark that immage with a bounding box representing that vocalization, and send the data related to these findings to IoT Hub as telemetry.
+[A YouTube video walkthrough of our Azure infrastructure.](https://www.youtube.com/watch?v=GPtdcHC59w4)
+
+Proof #3 - We could read sound files, convert those to spectrogramss, and use those spectrogramss to recognize elephant vocalization.
+
+Proof #4 - We could produce the primary logic that represents the inner workings of the IoT Edge device. This means we could take the spectrogram image and categorize the elephant vocalizations using a machine learning model, mark that immage with a bounding box representing that vocalization, and send the data related to these findings to IoT Hub as telemetry.
+
+[A YouTube video wlkthrough of our Boudning box and Prediction logic.](https://youtu.be/rAG93pHBB0Q)
 
 ## Discussions - Some of our Team's Thoughts on this Project
 
