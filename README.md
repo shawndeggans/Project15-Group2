@@ -389,12 +389,17 @@ learning and python libraries portions of this solution]
 
 Building the complete solution was outside the scope of time we had available. Therefore, we decided to provide a colleciton of technical proofs that we felt best represented the viability of this concept. Here were the primary areas where we want to build technical solutions to address specific problem areas.
 
-Proof #1 - We could use DevOps and produce our IoT Suite of services and automatically push new IoT Edge modules to an IoT Edge device.
+Proof #1 - We could use DevOps to produce our IoT Suite of services and automatically push new IoT Edge modules to an IoT Edge device.
 
-Proof #2 - We could read sound files, convert those to spectograms, and use those spectograms to recognize elephant vocalization.
+![Group 2 IoT Edge Pipeline](media/IoT-Edge-Pipeline.png)
 
-Proof #3 - We could produce the primary logic that represents the inner workkings of the IoT Edge device. This means we could take the spectrogram image and categorize the elephant vocalizations using a machine learning model, mark that immage with a bounding box representing that vocalization, and send the data related to these findings to IoT Hub as telemetry.
+Our goal was to build a complete MLOPs pipeline, but we made a few early decisions that made that difficult. We trained and created some of our models in vendor locked systems. This limited our ability to create a fully functioning MLOPs process, but we were able to build a standard IoT Edge DevOps pipeline. This means that any custom modules checked in could be automatically deployed to the edge device. The following link will take you to a YouTube video explaining it.
 
+[A YouTube video walkthrough of our DevOps process.](https://youtu.be/ykfQggAf-bY)
+
+Proof #2 - We could read sound files, convert those to spectrogramss, and use those spectrogramss to recognize elephant vocalization.
+
+Proof #3 - We could produce the primary logic that represents the inner workings of the IoT Edge device. This means we could take the spectrogram image and categorize the elephant vocalizations using a machine learning model, mark that immage with a bounding box representing that vocalization, and send the data related to these findings to IoT Hub as telemetry.
 
 ## Discussions - Some of our Team's Thoughts on this Project
 
