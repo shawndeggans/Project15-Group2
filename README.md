@@ -9,13 +9,15 @@ Shaw, Shawn Deggans*
 
 ![Elephant walking with spectrogram in the background.](media/1cd58ecb298356066c8fee78a554482b.png)
 
+Elephant walking with spectrogram in the background.
+
 ## (Objectives) Can We Use IoT and Machine Learning to Save Elephant Lives?
 
 The goal of this project is to create a platform that will allow researchers to
 continuously build and refine machine learning models that recognize elephant
 behavior from infrasound. This platform is based on Microsoft's Project15
 architecture with modifications to meet the stated goal of the system. This
-document will explore the problem area we are attempting to address and the
+document will explore the problem area we are attempting to address, and the
 system design we think will best address the needs of that problem area.
 
 Our recommended system is evolutionary and allows researchers to use the modern
@@ -97,19 +99,20 @@ video below.
 > scientific paper "Insightful Problem Solving in an Asian Elephant,"
 > published Aug. 18, 2011 in the journal PLoS ONE."
 
-[Kandula, National Zoo, insightful problem solving 2 YouTube Video](https://youtu.be/u5sFxcxoy3Q)
+[Kandula, National Zoo, insightful problem solving 2 YouTube
+Video](https://youtu.be/u5sFxcxoy3Q)
 
-Elephants show complex social skills and behavior*.* They show
+Elephants show complex social skills and behavior\*.\* They show
 self-recognition[^6]. They demonstrate an evolving pattern of behaviors when
 faced with complex problems[^7].
 
 The research shows that elephants are complex, intelligent animals with a rich
 social familial structure. It's our assumption that these behaviors are a
 valuable tool in the struggle to save elephants lives. To accomplish our goal of
-building a system that focuses on this particular aspect of elephant life and
-behaviors, we turned to existing research and projects that focused on
-infrasound and elephants. A primary source for research is [The Cornell Lab
-Elephant Listening Project.](https://elephantlisteningproject.org/)
+building a system that focuses on this aspect of elephant life and behaviors, we
+turned to existing research and projects that focused on infrasound and
+elephants. A primary source for research is [The Cornell Lab Elephant Listening
+Project.](https://elephantlisteningproject.org/)
 
 The Elephant Listening Project is built on the work carried out by Katy Payne, a
 zoologist and researcher who first used infrasound to listen in on the
@@ -121,9 +124,9 @@ with those conversations.
 
 ## Infrasound
 
-[Infrasound YouTube Video](https://youtu.be/5pY2UxJa0ps "Infrasound")
+[Infrasound YouTube Video](https://youtu.be/5pY2UxJa0ps)
 
-~   Infrasound
+\~ Infrasound
 
 It's important to understand that the elephant's vocalization is produced using
 its complex larynx. Elephants' low-frequency vocalizations are produced by
@@ -179,12 +182,16 @@ is divided into three primary areas of focus:
 
 ![Azure IoT Reference Architecture](media/4918ad7ef72af541c475c414446ebe7b.png)
 
+Azure IoT Reference Architecture
+
 Figure - Azure IoT Reference Architecture
 
 Comparing this architecture to the Project15 open-source platform for
 conservation, we can see the overlap.
 
 ![Project 15 Open Platform Architecture](media/b5503c14677727dd47945ff35abed68e.png)
+
+Project 15 Open Platform Architecture
 
 Figure - Project 15 Open Platform Architecture
 
@@ -228,12 +235,16 @@ This was our initial device design:
 
 ![Group 2 Initial Infrasound Capture Concept](media/f8755c86b849c27264ade96e4636755b.png)
 
+Group 2 Initial Infrasound Capture Concept
+
 Figure - Group 2 Original Infrasound Capture Concept
 
 As we completed the proof-of-concept code for this project, we came up with this
 more detailed diagram based on our known logic flow:
 
 ![Group 2 matured infrasound detection IoT Edge Device](media/a6f92093805ad118c8ab630eadb12686.png)
+
+Group 2 matured infrasound detection IoT Edge Device
 
 Figure - Our Matured Infrasound Detection IoT Edge Device
 
@@ -243,7 +254,7 @@ communication, as well as the IoT Edge's internal device logic.
 1. The infrasound capture device continuously monitors for infrasound. These
     infrasound signals are captured and sent to the device for analysis.
 
-2. The 64 bit Raspberry Pi model captures the infrasound audio signals, breaks
+2. The 64-bit Raspberry Pi model captures the infrasound audio signals, breaks
     these into segments based on detected beginning-of-signal and end-of-signal
     indicators. Initially this limitation could mean we miss "conversations,"
     because this is the equivalent of capturing a word from each sentence in
@@ -337,11 +348,6 @@ management and administration.
     IoT Edge Modules. Modules are pulled by [1] IoT Hub to automatically deploy
     to devices in the field.
 
-## Audio Processing, Imaging, and Categorizing Elephant Vocalizations
-
-[Tomasso and Aneeq, this is the place to get into the details of the machine
-learning and python libraries portions of this solution]
-
 ## Observations
 
 1. Most of our initial observations were around the lack of labelling on the
@@ -370,7 +376,7 @@ learning and python libraries portions of this solution]
     opportunity to help by creating a very small, very low power device that
     could possible user either UHF band to communicate or LoRaWAN. It might also
     be possible to attach the detector to drones. The drones could fly to a
-    location, land, and shut off, and then collect data. After collecting data
+    location, land, and shut off, and then collect data. After collecting data,
     they could power back up and fly to a point where they could deliver the
     data to a network. This was beyond the scope of our legwork for this
     project, but it does represent what's possible using an IoT Edge device that
@@ -387,29 +393,177 @@ learning and python libraries portions of this solution]
 
 ## Analysis - A Demo of a Proof of Concept
 
-Building the complete solution was outside the scope of time we had available. Therefore, we decided to provide a colleciton of technical proofs that we felt best represented the viability of this concept. Here were the primary areas where we want to build technical solutions to address specific problem areas.
+Building the complete solution was outside the scope of time we had available.
+Therefore, we decided to provide a collection of technical proofs that we felt
+best represented the viability of this concept. Here were the primary areas
+where we want to build technical solutions to address specific problem areas.
 
-Proof #1 - We could use DevOps to produce our IoT Suite of services and automatically push new IoT Edge modules to an IoT Edge device.
+Proof \#1 - We could use DevOps to produce our IoT Suite of services and
+automatically push new IoT Edge modules to an IoT Edge device.
 
-![Group 2 IoT Edge Pipeline](media/IoT-Edge-Pipeline.png)
+![Group 2 IoT Edge Pipeline](media/573601239068eeb2b86b923566032de9.png)
 
-Our goal was to build a complete MLOPs pipeline, but we made a few early decisions that made that difficult. We trained and created some of our models in vendor locked systems. This limited our ability to create a fully functioning MLOPs process, but we were able to build a standard IoT Edge DevOps pipeline. This means that any custom modules checked in could be automatically deployed to the edge device. The following link will take you to a YouTube video explaining it.
+Group 2 IoT Edge Pipeline
 
-[A YouTube video walkthrough of our DevOps process.](https://youtu.be/ykfQggAf-bY)
+Our goal was to build a complete MLOPs pipeline, but we made a few early
+decisions that made that difficult. We trained and created some of our models in
+vendor locked systems. This limited our ability to create a fully functioning
+MLOPs process, but we were able to build a standard IoT Edge DevOps pipeline.
+This means that any custom modules checked in could be automatically deployed to
+the edge device. The following link will take you to a YouTube video explaining
+it.
 
-Proof #2 - We could build out the Azure services and infrastructure needed to support our ideas.
+[A YouTube video walkthrough of our DevOps
+process.](https://youtu.be/ykfQggAf-bY)
 
-[A YouTube video walkthrough of our Azure infrastructure.](https://www.youtube.com/watch?v=GPtdcHC59w4)
+*Proof \#2* - We could build out the Azure services and infrastructure needed to
+support our ideas.
 
-Proof #3 - We could read sound files, convert those to spectrogramss, and use those spectrogramss to recognize elephant vocalization.
+[A YouTube video walkthrough of our Azure
+infrastructure.](https://www.youtube.com/watch?v=GPtdcHC59w4)
 
-Proof #4 - We could produce the primary logic that represents the inner workings of the IoT Edge device. This means we could take the spectrogram image and categorize the elephant vocalizations using a machine learning model, mark that immage with a bounding box representing that vocalization, and send the data related to these findings to IoT Hub as telemetry.
+*Proof \#3* - We could read sound files, convert those to spectrograms, and use
+those spectrograms to recognize elephant vocalization.
 
-[A YouTube video wlkthrough of our Boudning box and Prediction logic.](https://youtu.be/rAG93pHBB0Q)
+Four our spectrogram generation we implemented the MATLAB software as it enabled
+higher fidelity power spectrum imaging improving the performance of the object
+detection phase due to smoothening over more granular bands in both frequency
+and time something which was difficult to achieve with python libraries that we
+tested out extensively including librosa, scipy etc which required a tradeoff to
+be made.
+
+For our feature extraction we calculated 19 different variables with relation to
+flow statistic on the audio (mean, variance, etc.) and common signal
+characteristics (rms, peak2peak, etc.) making use of the MATLAB software here
+which enabled a wider array of spectral features to be extracted. In summary for
+each sample, we found the frequency of the peak magnitude across the overall
+power spectrum, the 1st formant, the 2nd formant, the max, min, mean and finish
+of the fundamental. In addition, we computed the power in the low frequency
+range 0-30 Hz, mid frequency range 30-120 Hz and high frequency range \>120 Hz.
+We located the frequency of the spectral kurtosis peak and the flow cumulative
+sum range.
+
+Our results offer some starting points for further research particularly in
+relation to trying to learn any underlying structure, with regards to age
+groups, in our population, given unlabeled data. We note that two independent
+approaches overlap in their age group classifications for just over 75% of the
+data meaning that our hypothesis that the wav files can be separated, and do in
+fact cluster, into two groups separable by age might hold true. This offers two
+potential tentative methods to begin further labelling the wav files by maturity
+group (i.e.: A vs B).
+
+A brief explanation of the two methods follows. In the first method we
+implemented the thresholds proposed in
+(https://www.nature.com/articles/srep27585/tables/3) by calculating the 1st,2nd
+Formant, Max, Min, and Finish Frequencies for each sample and using these to
+classify the samples into Maturity Group 1 or 2. In the second method we
+implemented K-means clustering and PCA dimensionality reduction (dimension
+equals to 2) to classify the points into two clusters representing either
+maturity group. This method showed clear signs of clustering when the points
+were projected into the PCA dimensions as seen in the output below.  
+
+![Chart, scatter chart Description automatically generated](media/9432fc314f4350b9fa59f935e184573f.png)
+
+When comparing method 1 and 2 the classified maturity groups overlapped for over
+75% of the data, however, to check whether this is statistically significant we
+would need to perform a t-test.
+
+*Proof \#4* - We could produce the primary logic that represents the inner
+workings of the IoT Edge device. This means we could take the spectrogram image
+and categorize the elephant vocalizations using a machine learning model, mark
+that image with a bounding box representing that vocalization, and send the data
+related to these findings to IoT Hub as telemetry.
+
+[A YouTube video walkthrough of our Bounding box and Prediction
+logic.](https://youtu.be/rAG93pHBB0Q)
 
 ## Discussions - Some of our Team's Thoughts on this Project
 
-[Here we can put down some of our existing discussions from Teams]
+Our initial conversations in late December and early January were primarily
+related to the datasets. Questions arose around what data we should review, how
+we should process audio files, and even how we should store and retrieve the
+data for review.
+
+Our initial idea was to tackle the demographics problem, but there were
+questions around recognizing individuals. We didn’t feel we had enough
+information labelling individual elephants. *“the biggest issue I think is that
+whilst we might be able to find out the optimal number of clusters if we don't
+know anything about the individuals who made those sounds then it will be
+difficult to say much about their demographics. "one must remember that this
+analysis was done without knowing which individual gave which call nor what the
+individual’s specific behavior was.*"
+
+It was around the end of December that we began discussing setting up MLOPs.
+
+It was on the 5th that we had our first MATLAB produced rumble.
+
+![](media/f8f109a8212312ec77cff9b1eeebf941.jpg)
+
+This was discovered by using the following article:
+<https://www.mathworks.com/help/signal/ug/practical-introduction-to-time-frequency-analysis.html>
+
+Overall, we started seeing much better results than the various Python libraries
+we had initially tested. The MATLAB libraries were too good not to continue to
+develop with, despite that it locked us into a specific vendor and made it
+impossible for us to use the libraries in an IoT Edge container. This was due to
+licensing restrictions. The hope would be that because this is a
+proof-of-concept, we could develop around our limitations until a license could
+be secured.
+
+![](media/7f23bf9f0053315911d068e432529b44.jpg)
+
+This is what the code looked like:
+
+![](media/9a07b7958145ecddb1172acd3af64972.jpg)
+
+Our calculation of the 1st and 2nd formant implemented approaches commonly
+utilized in human language processing which might not translate to animal
+language processing so guidance in setting the parameters here would ensure more
+accurate approximations.
+Other helpful areas. This Kaggle link for pitch detection:
+<https://www.kaggle.com/lrthtn/pitch-detection>
+
+It was around mid-January that we began to discuss what the elephant detection
+device would look like. This was when we created the first diagram shown above.
+
+It was also around this time that we had fully shifted away from demographic
+data and started focusing more on capturing behavior changes. Basically, the
+elephant formant looked to be a key in helping determine true elephant rumbles
+from other noise. *“These rumbles exhibited an upward shift in the second
+formant location, which implies active vocal tract modulation, compared to
+rumbles made in response to white noise playbacks. In a second experiment, audio
+playbacks of these rumbles produced in response to bees elicited increased
+headshaking, and further and faster retreat behavior in other elephants,
+compared to control rumble playbacks with lower second formant frequencies.”*
+
+From our research we found additional evidence that we might be on the right
+trail, *“While formants were still distinctive, absolute frequency values as
+well as shape-related features of the fundamental frequency differed between
+individuals. This is similar to the discriminative parameters found in female
+rumbles". It's basically saying that other spectral features like the
+fundamental and absolute freq values vary too much between individuals to be
+indicators of demographics or behaviour ( a bit like how we all have different
+sized feet)”*
+
+[1/11 1:36 AM] Tommaso Pappagallo (Guest)
+
+Had an idea regarding the formant. We can calculate the slope of the formant
+plots over discrete consecutive time points and if the average is positive then
+we classify the signal as a 1 (stress) and if zero or negative as a 0 (not
+stress). With this we can do a logistic regression over a range of other
+variables that describe the spectral shape (specteal kurtosis etc) to have a
+model that can classify any new data point as 1 or 0. I think that could work
+what do you think will try that today Aneeq Rehman (Guest)
+
+It was here that we had made the decision as a team to focus on the path of
+elephant behavior, but with a focus on detecting rumbles from the audio samples
+we had access to.
+
+As we continued through the project, we determined that building some type of
+proof-of-concept that displayed the primary intent of our project would be
+ideal. We knew we didn’t have time to create an infrasound detector, an audio
+wave converter, and classifier all on one device. However, we worked to prove
+out as many individual parts as possible.
 
 ## Conclusions and Moving Forward
 
@@ -443,8 +597,6 @@ other libraries that offer similar or same functionality. The next step would be
 developing the actual IoT Edge device and finally we would like to see that
 device deployed and used by the researchers and rangers involved in the
 protection of elephants.
-
-___
 
 ### *Footnotes*
 
