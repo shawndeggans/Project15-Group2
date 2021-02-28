@@ -633,3 +633,16 @@ researchers, managers, and conservationists by Simon Hedges (Ed.)
 
 [^11]: Do elephants make alarm call that means, "humans!"
 (<https://earthsky.org/earth/do-elephants-make-alarm-call-that-means-humans>)
+___
+
+## What's included in this project?
+
+This project includes everything we tested and experimented with to produce the rumble classifier, the machine learning pipeline, and the IoT Edge DevOps project.
+
+Because the project is still a work in progress, it's not ready to build as a single solution. However, there are a number of pieces that we feel would be interesting to developers interested in contributing to the solution.
+
+Some portions of the solution require a licensed version of MATLAB, but many of the notebooks in the `machine-learning` notebook are runable.
+
+We encounrage anyone interesting in the project to start by installing the Docker image located in the `rumble-classifier` and then running the notebook located in the `image-processing` folder.
+
+Other areas of interst are the `devops-pipeline` area where we were able to test the plausibility of deploying ML on the Edge, as well as the `machine-learning' folder that holds much of the research and thinking behind the rumble classifer app.
