@@ -13,7 +13,7 @@ Elephant walking with spectrogram in the background.
 
 Welcome to Group 2's AI for Good presentation. We were honored with the opportunity to contribute to Microsoft's Project15 through University of Oxford. This was a fantastic learning experience. We not only learned of the plight of elepants, but that we could share our knowledge to help save these amazing animals.
 
-![isyoutube](https://youtu.be/7zpX7tR2iQU)
+![isyoutube](https://www.youtube.com/watch?v=7zpX7tR2iQU)
 
 ## (Objectives) Can We Use IoT and Machine Learning to Save Elephant Lives?
 
